@@ -7,12 +7,12 @@ using Web.ViewModels;
 
 namespace Web.Controllers
 {
-    public class RegistrerController : Controller
+    public class RegisterController : Controller
     {
         private readonly SignInManager<IdentityUser> _SignInManager;
         private readonly UserManager<IdentityUser> _UserManager;
 
-        public RegistrerController(UserManager<IdentityUser> userManager,
+        public RegisterController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager)
         {
             _UserManager = userManager;

@@ -5,6 +5,10 @@
     {
       "library": "vue@2.6.10",
       "destination": "wwwroot\\lib\\vue"
+    },
+    {
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot\\lib\\bootstrap"
     }
   ]
 }
