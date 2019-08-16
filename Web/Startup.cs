@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Web.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Web
 {
@@ -36,8 +37,8 @@ namespace Web
             services.AddDbContextPool<Context>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            // services.AddIdentity<IdentityUser, IdentityRole>()
-            //         .AddEntityFrameworkStores<Context>();
+             services.AddIdentity<IdentityUser, IdentityRole>()
+                     .AddEntityFrameworkStores<Context>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -54,6 +55,8 @@ namespace Web
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
